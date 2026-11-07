@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Truly Sorry Shilu ❤️</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Google Fonts for Elegant Serif & Cursive Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roseGold: {
+              50: '#fff5f5',
+              100: '#ffe3e3',
+              200: '#ffd1d1',
+              300: '#fba1a1',
+              400: '#f87171',
+              500: '#e05353',
+              600: '#c53030',
+            },
+            softBlush: '#FFF0F2',
+            champagne: '#FDFBF7',
+            warmPetal: '#FFB7B2',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            handwritten: ['"Caveat"', 'cursive'],
+            script: ['"Dancing Script"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom smooth scroll & styling */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 10% 20%, #FFF5F7 0%, #FFF0F2 45%, #FDF8F5 100%);
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Flip Card 3D effects */
+    .perspective {
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 1.25rem;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Floating Heart Animation */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.3) rotate(25deg);
+        opacity: 0;
+      }
+    }
+    .floating-heart {
+      position: fixed;
+      bottom: -10%;
+      pointer-events: none;
+      animation: floatUp 8s linear infinite;
+      z-index: 0;
+    }
+
+    /* Pulse Glow */
+    .glow-pulse {
+      animation: glowPulse 2.5s infinite ease-in-out;
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 15px rgba(244, 63, 94, 0.25); }
+      50% { box-shadow: 0 0 30px rgba(244, 63, 94, 0.45); }
+    }
+
+    /* Subtle paper texture simulation */
+    .letter-paper {
+      background-color: #fffdfa;
+      background-image: radial-gradient(#f0e6dd 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+  </style>
+</head>
+<body class="text-stone-800 font-sans min-h-screen relative selection:bg-rose-200">
+
+  <!-- Background Ambient Floating Hearts -->
+  <div id="heart-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <!-- Header / Music Audio Controller -->
+  <header class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <button id="soundToggleBtn" class="flex items-center gap-2 px-3 py-2 text-xs md:text-sm font-medium bg-white/80 backdrop-blur-md rounded-full shadow-md hover:bg-white transition-all duration-300 text-stone-700 border border-rose-100">
+      <i data-lucide="music" class="w-4 h-4 text-rose-500"></i>
+      <span id="soundLabel">Play Soothing Melody</span>
+    </button>
+  </header>
+
+  <!-- Hero Section with Runaway Button -->
+  <main class="relative z-10 max-w-4xl mx-auto px-4 pt-12 pb-20 flex flex-col items-center">
+    
+    <!-- Top badge -->
+  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100/80 border border-rose-200 text-rose-600 text-xs md:text-sm font-medium mb-6 animate-pulse">
+    <i data-lucide="sparkles" class="w-4 h-4 text-rose-500"></i>
+    <span>Dil se maafi for my Shilu jaan</span>
+  </div>
+
+  <!-- Main Title -->
+  <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-center text-stone-800 mb-3">
+    Sorry <span class="text-rose-500 font-script font-normal text-5xl md:text-7xl block sm:inline mt-1">Shilu Meri Jaan</span> ❤️
+  </h1>
+  <p class="text-stone-600 text-center max-w-lg text-sm md:text-base mb-8 font-normal leading-relaxed">
+    Mujhse bohot badi galti ho gayi Shilu. Aap jab rooth jaati ho na toh bilkul mann nahi lagta. Please maaf kar do na mere bachhe ko?
+  </p>
+
+  <!-- Interactive Forgiveness Arena -->
+  <section class="w-full max-w-md bg-white/70 backdrop-blur-md p-6 md:p-8 rounded-3xl shadow-xl border border-white/80 text-center relative overflow-hidden mb-16 glow-pulse">
+    
+    <div id="forgivePromptArea">
+      <div class="w-20 h-20 mx-auto mb-4 bg-rose-50 rounded-full flex items-center justify-center text-4xl shadow-inner border border-rose-100" id="emojiFace">
+        🥺
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-stone-800 mb-2" id="arenaTitle">
+        Maan jao na Shilu?
+      </h2>
+      <p class="text-xs md:text-sm text-stone-500 mb-6" id="arenaSubtitle">
+        Gussa thook do na baba, dekho kitna payaru karta hu aapse!
+      </p>
+
+      <!-- Dynamic Action Buttons Area -->
+      <div id="decisionContainer" class="relative min-h-[90px] flex items-center justify-center gap-4">
+        <!-- YES BUTTON -->
+        <button id="yesBtn" class="px-6 py-3 bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-600 hover:to-rose-500 text-white font-semibold rounded-2xl shadow-lg shadow-rose-300/50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 z-10">
+          <i data-lucide="heart" class="w-5 h-5 fill-white"></i>
+          <span id="yesBtnText">Maan gayi na! 🥰</span>
+        </button>
+
+        <!-- RUNAWAY / DODGING NO BUTTON -->
+        <button id="noBtn" class="px-5 py-3 bg-stone-100 hover:bg-stone-200 text-stone-600 font-medium rounded-2xl transition-all duration-200 border border-stone-200 text-sm whitespace-nowrap z-20">
+          Nahi 💔
+        </button>
+      </div>
+      <p id="dodgeFeedback" class="text-xs font-handwritten text-rose-500 text-lg mt-3 h-6 transition-opacity opacity-0">
+        Aise mat karo Shilu! 🙈
+      </p>
+    </div>
+
+    <!-- Celebration Box (Hidden initially) -->
+    <div id="celebrationArea" class="hidden flex-col items-center justify-center py-4">
+      <div class="text-5xl mb-3 animate-bounce">💖🥰🎉</div>
+      <h3 class="text-2xl font-bold text-rose-600 mb-2 font-script text-3xl">Yayyy! Meri Shilu Maan Gayi!</h3>
+      <p class="text-sm text-stone-600 max-w-xs mb-4">
+        Aap duniya ki sabse best girlfriend ho! Ab se promise no ladai, sirf dher saara payaru, jhappi aur laad-pyar!
+      </p>
+      <button onclick="scrollToLetter()" class="text-xs font-semibold uppercase tracking-wider text-rose-500 hover:text-rose-700 underline flex items-center gap-1">
+        Aapke liye likha khat padho neeche ↓
+      </button>
+    </div>
+
+  </section>
+
+  <!-- The Handwritten Love Letter Section -->
+  <section id="letterSection" class="w-full max-w-2xl mb-16">
+    <div class="text-center mb-6">
+      <span class="text-xs font-semibold text-rose-500 uppercase tracking-widest">Straight from my soul</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-stone-800">Shilu Ke Liye Pyaara Khat 💌</h2>
+    </div>
+
+    <div class="letter-paper border border-amber-100/80 rounded-2xl p-6 md:p-10 shadow-xl relative transition-all duration-300 hover:shadow-2xl">
+      <!-- Stamp & aesthetic tape -->
+      <div class="absolute -top-3 left-8 w-20 h-6 bg-rose-200/50 backdrop-blur-sm -rotate-2 rounded-sm border-t border-b border-rose-300/40"></div>
+      <div class="absolute top-6 right-6 w-12 h-14 bg-rose-50 border-2 border-dashed border-rose-300 flex flex-col items-center justify-center text-xs text-rose-400 font-serif rotate-3">
+        <span>💌</span>
+        <span class="text-[9px] uppercase tracking-tighter">For Shilu</span>
+      </div>
+
+      <div class="space-y-4 text-stone-700 font-handwritten text-xl md:text-2xl leading-relaxed mt-4">
+        <p class="text-rose-600 font-bold text-2xl md:text-3xl">Meri Pyaari Shilu,</p>
+        <p>
+          I am so sorry baba. Mujhe pata hai maine aapka dil dukhaya, aur sach bolu toh jab aap naraz hoti ho na, mera kahin dil nahi lagta. Har cheez adhoori aur bekaar lagti hai.
+        </p>
+        <p>
+          Aap mere liye sabse zyaada special ho. Kabhi kabhi main buddhu jaisi baatein kar deta hoon, par mera intention kabhi bhi aapko hurt karne ka nahi hota. Aapke bina ek pal bhi chain nahi milta.
+        </p>
+        <p>
+          Main promise karta hoon ki aage se aapko aur dhyan se sununga, bilkul pareshan nahi karunga, aur sirf aur sirf payaru karunga. Ab please jaldi se muskura do na, mujhe meri purani bubbly Shilu wapas chahiye!
+        </p>
+        <div class="pt-4 text-right">
+          <p class="text-stone-500 text-lg">Sirf aur sirf aapka,</p>
+          <p class="text-rose-500 font-bold text-2xl md:text-3xl font-script">Bohot Saare Pyaar Ke Saath ❤️</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel / Flip-Cards: "Reasons Why I'm Sorry & Love You" -->
+  <section class="w-full max-w-3xl mb-16">
+    <div class="text-center mb-6">
+      <span class="text-xs font-semibold text-rose-500 uppercase tracking-widest">Tap to flip & read</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-stone-800">Shilu Itni Special Kyun Hai? ✨</h2>
+      <p class="text-xs md:text-sm text-stone-500 mt-1">Cards pe tap karo aur dekho mere dil ki baatein</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      
+      <!-- Card 1 -->
+      <div class="flip-card h-48 cursor-pointer group" onclick="toggleCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front bg-white/90 p-6 flex flex-col justify-between border border-rose-100 shadow-md group-hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl">✨</span>
+              <span class="text-xs bg-rose-50 text-rose-500 px-2 py-1 rounded-full font-medium">Card 01</span>
+            </div>
+            <h4 class="text-lg font-bold text-stone-800 text-left">Aapki Pyaari Si Smile</h4>
+            <p class="text-xs text-stone-400 text-left flex items-center gap-1">Tap karke padho <i data-lucide="repeat" class="w-3 h-3"></i></p>
+          </div>
+          <div class="flip-card-back bg-gradient-to-br from-rose-50 to-rose-100 p-6 flex flex-col justify-center items-center border border-rose-200 text-center shadow-md">
+            <p class="text-sm font-medium text-rose-800 leading-relaxed font-sans">
+              "Jab aap hasti ho na Shilu, lagta hai poori duniya roshan ho gayi. Main wo smile kabhi khone nahi de sakta."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flip-card h-48 cursor-pointer group" onclick="toggleCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front bg-white/90 p-6 flex flex-col justify-between border border-rose-100 shadow-md group-hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl">😾</span>
+              <span class="text-xs bg-rose-50 text-rose-500 px-2 py-1 rounded-full font-medium">Card 02</span>
+            </div>
+            <h4 class="text-lg font-bold text-stone-800 text-left">Gussa Bhi Pyara Lagta Hai</h4>
+            <p class="text-xs text-stone-400 text-left flex items-center gap-1">Tap karke padho <i data-lucide="repeat" class="w-3 h-3"></i></p>
+          </div>
+          <div class="flip-card-back bg-gradient-to-br from-amber-50 to-rose-100 p-6 flex flex-col justify-center items-center border border-rose-200 text-center shadow-md">
+            <p class="text-sm font-medium text-stone-800 leading-relaxed font-sans">
+              "Naak chadhakar gussa karna cute lagta hai, par please zyada der mat rootho na meri jaan, jaan nikal jaati hai!"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flip-card h-48 cursor-pointer group" onclick="toggleCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front bg-white/90 p-6 flex flex-col justify-between border border-rose-100 shadow-md group-hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl">🧸</span>
+              <span class="text-xs bg-rose-50 text-rose-500 px-2 py-1 rounded-full font-medium">Card 03</span>
+            </div>
+            <h4 class="text-lg font-bold text-stone-800 text-left">Meri Best Friend & Pyaar</h4>
+            <p class="text-xs text-stone-400 text-left flex items-center gap-1">Tap karke padho <i data-lucide="repeat" class="w-3 h-3"></i></p>
+          </div>
+          <div class="flip-card-back bg-gradient-to-br from-rose-50 to-pink-100 p-6 flex flex-col justify-center items-center border border-rose-200 text-center shadow-md">
+            <p class="text-sm font-medium text-stone-800 leading-relaxed font-sans">
+              "Aapse hi har baat share hoti hai. Aap meri confidante ho, meri sabse achhi dost ho aur mera sab kuch ho."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="flip-card h-48 cursor-pointer group" onclick="toggleCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front bg-white/90 p-6 flex flex-col justify-between border border-rose-100 shadow-md group-hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl">👑</span>
+              <span class="text-xs bg-rose-50 text-rose-500 px-2 py-1 rounded-full font-medium">Card 04</span>
+            </div>
+            <h4 class="text-lg font-bold text-stone-800 text-left">Aapka Pura Haq Hai</h4>
+            <p class="text-xs text-stone-400 text-left flex items-center gap-1">Tap karke padho <i data-lucide="repeat" class="w-3 h-3"></i></p>
+          </div>
+          <div class="flip-card-back bg-gradient-to-br from-rose-100 to-rose-200 p-6 flex flex-col justify-center items-center border border-rose-300 text-center shadow-md">
+            <p class="text-sm font-medium text-rose-900 leading-relaxed font-sans">
+              "Mujhpe chillane ka bhi haq aapka hai, daantne ka bhi aur phir dher saara payaru paane ka bhi! Always yours."
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Apology Coupon Book -->
+  <section class="w-full max-w-2xl mb-12">
+    <div class="text-center mb-6">
+      <span class="text-xs font-semibold text-rose-500 uppercase tracking-widest">Shilu Ke Special Maafi Coupons</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-stone-800">Redeemable Coupons 🎟️</h2>
+      <p class="text-xs md:text-sm text-stone-500 mt-1">Tap karke abhi claim kar lo, guaranteed pass hai!</p>
+    </div>
+
+    <div class="space-y-3" id="couponsContainer">
+      <!-- Coupon 1 -->
+      <div class="coupon-item bg-white/90 border-2 border-dashed border-rose-200 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow transition-all duration-300" data-id="c1">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🛋️</span>
+          <div>
+            <h5 class="font-bold text-stone-800 text-sm md:text-base">Godi Me Bithane Ka Pass</h5>
+            <p class="text-xs text-stone-500">Jab tak man kare godi me baitho aur laad-pyaar karwao.</p>
+          </div>
+        </div>
+        <button onclick="redeemCoupon(this)" class="px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 transition-colors">
+          Redeem
+        </button>
+      </div>
+
+      <!-- Coupon 2 -->
+      <div class="coupon-item bg-white/90 border-2 border-dashed border-rose-200 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow transition-all duration-300" data-id="c2">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">💋</span>
+          <div>
+            <h5 class="font-bold text-stone-800 text-sm md:text-base">Dher Saari Pappi & Jhappi Pass</h5>
+            <p class="text-xs text-stone-500">Ek tight wali jhappi aur dher saari sweet pappiyaan for Shilu.</p>
+          </div>
+        </div>
+        <button onclick="redeemCoupon(this)" class="px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 transition-colors">
+          Redeem
+        </button>
+      </div>
+
+      <!-- Coupon 3 -->
+      <div class="coupon-item bg-white/90 border-2 border-dashed border-rose-200 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow transition-all duration-300" data-id="c3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">💆‍♀️</span>
+          <div>
+            <h5 class="font-bold text-stone-800 text-sm md:text-base">Special Payaru & Pampering Session</h5>
+            <p class="text-xs text-stone-500">Sirf aapki sununga, baal sehlaunga aur full pamper karunga.</p>
+          </div>
+        </div>
+        <button onclick="redeemCoupon(this)" class="px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 transition-colors">
+          Redeem
+        </button>
+      </div>
+
+      <!-- Coupon 4 -->
+      <div class="coupon-item bg-white/90 border-2 border-dashed border-rose-200 rounded-2xl p-4 flex items-center justify-between shadow-sm hover:shadow transition-all duration-300" data-id="c4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🍨</span>
+          <div>
+            <h5 class="font-bold text-stone-800 text-sm md:text-base">Shilu's Mood Fixer Treat</h5>
+            <p class="text-xs text-stone-500">Ice cream, midnight snack ya jo bhi man kare, instant order!</p>
+          </div>
+        </div>
+        <button onclick="redeemCoupon(this)" class="px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 transition-colors">
+          Redeem
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Redeemed Toast Notification -->
+    <div id="redeemToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900/90 text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-medium shadow-2xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+      <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+      <span id="toastMsg">Coupon claim ho gaya! Shilu ko instant milega ❤️</span>
+    </div>
+  </section>
+
+  <!-- Footer Note -->
+  <footer class="text-center text-stone-400 text-xs py-6 border-t border-rose-100/60 w-full">
+    Made with pure dil se love only for Shilu • You mean the whole world to me
+  </footer>
+
+</main>
+
+<!-- Interactive JavaScript Logic -->
+<script>
+  // Initialize Lucide Icons
+  lucide.createIcons();
+
+    // Floating heart generator
+    function createFloatingHearts() {
+      const container = document.getElementById('heart-container');
+      const emojis = ['❤️', '💖', '🌸', '✨', '💕', '🌷'];
+      
+      setInterval(() => {
+        if (document.hidden) return;
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart select-none text-rose-300/60';
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.style.left = Math.random() * 95 + 'vw';
+        heart.style.fontSize = (Math.random() * 16 + 14) + 'px';
+        heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 9000);
+      }, 700);
+    }
+    createFloatingHearts();
+
+    // Runaway "No" Button Logic
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const dodgeFeedback = document.getElementById('dodgeFeedback');
+  const emojiFace = document.getElementById('emojiFace');
+  
+  let dodgeCount = 0;
+  const pleaPhrases = [
+    "Aise mat karo Shilu! 🥺",
+    "Pakka sorry na yaar, maaf kar do! 🙏",
+    "Galti ho gayi baba, kaan pakad raha hu! 👂",
+    "Itna bhav mat khao na meri jaan! 🙈",
+    "Dekho 'No' button chhota hota ja raha hai! 💔",
+    "Sirf ek pyaari si smile de do na! 🌹",
+    "Bas 'Maan gayi' pe click karo aur godi me baith jao! 🥰"
+  ];
+
+  const sadEmojis = ['🥺', '😢', '😭', '💔', '😿', '🙇‍♂️'];
+
+  function dodgeNoButton(e) {
+    if (e) e.preventDefault();
+    dodgeCount++;
+
+    // Change emoji & playful pleading text
+    emojiFace.innerText = sadEmojis[dodgeCount % sadEmojis.length];
+    dodgeFeedback.innerText = pleaPhrases[Math.min(dodgeCount - 1, pleaPhrases.length - 1)];
+    dodgeFeedback.style.opacity = '1';
+
+    // Enlarge the YES button so it's impossible to miss!
+    const currentScale = 1 + Math.min(dodgeCount * 0.12, 0.7);
+    yesBtn.style.transform = `scale(${currentScale})`;
+
+    // Random repositioning of the NO button inside bounds
+    const parent = document.getElementById('decisionContainer');
+    const rect = parent.getBoundingClientRect();
+
+    const randomX = (Math.random() - 0.5) * 160;
+    const randomY = (Math.random() - 0.5) * 80;
+
+    noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${Math.max(0.65, 1 - dodgeCount * 0.08)})`;
+    noBtn.innerText = dodgeCount >= 3 ? "Abhi bhi gussa? 🥺" : "Nahi 💔";
+  }
+
+  // Attach mouseover, touchstart, and click handlers to guarantee elusiveness
+  noBtn.addEventListener('mouseenter', dodgeNoButton);
+  noBtn.addEventListener('touchstart', dodgeNoButton, { passive: false });
+  noBtn.addEventListener('click', dodgeNoButton);
+
+    // YES Button Celebration
+    yesBtn.addEventListener('click', () => {
+      // Fire confetti explosions
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#f43f5e', '#fb7185', '#fda4af', '#fecdd3', '#ffe4e6']
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 60,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#e11d48', '#fda4af']
+        });
+        confetti({
+          particleCount: 60,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#e11d48', '#fda4af']
+        });
+      }, 300);
+
+      // Transition hero card content
+      document.getElementById('forgivePromptArea').classList.add('hidden');
+      const celebration = document.getElementById('celebrationArea');
+      celebration.classList.remove('hidden');
+      celebration.classList.add('flex');
+    });
+
+    // Flip Card Toggle
+    function toggleCard(card) {
+      card.classList.toggle('flipped');
+    }
+
+    // Scroll helper
+    function scrollToLetter() {
+      document.getElementById('letterSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Redeem Coupon logic
+    function redeemCoupon(btn) {
+      const card = btn.closest('.coupon-item');
+      if (card.classList.contains('opacity-60')) return;
+
+      card.classList.add('opacity-60', 'bg-rose-50/50');
+      btn.innerText = 'Redeemed ✓';
+      btn.className = 'px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-emerald-100 text-emerald-700 cursor-default';
+
+      // Confetti burst for coupon
+      confetti({
+        particleCount: 25,
+        spread: 40,
+        origin: { y: 0.8 },
+        colors: ['#10b981', '#f43f5e']
+      });
+
+      // Show toast message
+      const toast = document.getElementById('redeemToast');
+      toast.style.opacity = '1';
+      toast.style.pointerEvents = 'auto';
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 3200);
+    }
+
+    // Web Audio Ambient Synthesizer for Soothing Background Chimes
+    let audioCtx = null;
+    let isPlaying = false;
+    let chimeTimer = null;
+
+    function playChimeNote(freq, delay = 0) {
+      if (!audioCtx) return;
+      setTimeout(() => {
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.0);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start();
+          osc.stop(audioCtx.currentTime + 3.0);
+        } catch (e) {
+          console.error(e);
+        }
+      }, delay);
+    }
+
+    function startMelodyLoop() {
+      // Pentatonic warm, comforting chime frequencies (C major / A minor pentatonic)
+      const pentatonic = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 659.25];
+      chimeTimer = setInterval(() => {
+        if (!isPlaying) return;
+        const note = pentatonic[Math.floor(Math.random() * pentatonic.length)];
+        playChimeNote(note);
+
+        if (Math.random() > 0.5) {
+          const companionNote = pentatonic[Math.floor(Math.random() * pentatonic.length)];
+          playChimeNote(companionNote, 400);
+        }
+      }, 1600);
+    }
+
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    const soundLabel = document.getElementById('soundLabel');
+
+    soundToggleBtn.addEventListener('click', () => {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      isPlaying = !isPlaying;
+
+      if (isPlaying) {
+        soundLabel.innerText = "Melody Playing ♫";
+        soundToggleBtn.classList.add('bg-rose-50', 'border-rose-300', 'text-rose-600');
+        startMelodyLoop();
+      } else {
+        soundLabel.innerText = "Play Soothing Melody";
+        soundToggleBtn.classList.remove('bg-rose-50', 'border-rose-300', 'text-rose-600');
+        clearInterval(chimeTimer);
+      }
+    });
+  </script>
+</body>
+</html>
